@@ -4,6 +4,9 @@ from django.db.models import Q
 from store.models import Product, Customer, Collection, Order, OrderItem
 
 def say_hello(request):
-    query_set = Product.objects.filter(Q(unit_price__lt=10) & Q(inventory__gt=10))
+    
+    query_set = Product.objects.filter(
+        id__in = OrderItem.objects.values('product').distinct()
+        ).order_by('title')
 
     return render(request, 'hello.html', {'name': 'Mayanja', 'products': list(query_set)})
