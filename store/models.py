@@ -68,6 +68,9 @@ class OrderItem(models.Model):
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
 
 
+
+
+
 class Address(models.Model):
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
