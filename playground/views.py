@@ -8,6 +8,6 @@ def calculate():
     return x
 
 
-def say_hello(request):
+def say_hello(request ):
     x = calculate()
     return render(request, 'hello.html', {'name': 'Mosh'})
